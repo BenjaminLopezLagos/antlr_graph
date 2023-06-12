@@ -1,0 +1,12 @@
+grammar graphvizGrammar;
+graph: 'digraph' LBRACKET (node)+ RBRACKET;
+node: vertex '->' vertex (weight)*';';
+vertex: LETTER;
+weight: LSQBRACKET 'weight=' INT RSQBRACKET;
+LETTER: [a-zA-Z]+;
+INT: [0-9]+;
+LSQBRACKET: '[';
+RSQBRACKET: ']';
+LBRACKET: '{';
+RBRACKET: '}';
+WS: [ \t\r\n]+ -> skip;
